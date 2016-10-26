@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Menu Item</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style1.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <form class="form-signin" action="{{url_for('editMenuItem',restaurant_id=restaurant_id,menu_id=menu_id)}}" method="POST">
+        <h2 class="form-signin-heading">Edit Menu Item here</h2>
+                  <label>
+                  Name
+                  <input type="text" name="name" placeholder = '{{item.name}}' class="form-control">
+                  </label>
+                  <br>
+                  <label>
+                  Price
+                  <input type="text" name="price" placeholder = '{{item.price}}'class="form-control" >
+                  </label>
+                  <br>
+                  <label>
+                  Description
+                  <input type="text" name="description" placeholder = '{{item.description}}' class="form-control">
+                  </label>
+                  <br>
+                  <!-- <input type="submit" name="submit" value="Edit"> -->
+                  <button class="btn  btn-primary " type="submit">Edit</button>
+                  <a href="{{url_for('restaurantMenu',restaurant_id=restaurant_id)}}"  class="btn btn-info" role="button">Delete</a>
+
+      </form>
+
+
+
+    </div>
+
+  </body>
+</html>

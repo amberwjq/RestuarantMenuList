@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>All restaurants</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.css') }}">
+
+  </head>
+  <header>
+    <div class="container">
+        <h1>Space for Header</h1>
+    </div>
+  </header>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div id="restaurantlist" class="col-md-3">
+          <span>
+            Restaurant List
+          </span>
+          <br>
+          {%for k in restaurants%}
+          <a href='{{url_for('restaurantMenu',restaurant_id = k.id)}}'>{{k.name}}</a>
+          <br>
+          {%  endfor %}
+        </div>
+        <div id="menu" class="col-md-9">
+          <div id="firstline" class="row">
+            <div id="restaurantName" class="col-md-6">
+              <p>{{restaurant.name}}</p>
+            </div>
+            <div id="addNewItemLink" class="col-md-6">
+               <p><a class="btn btn-primary btn-lg" href="{{url_for('newMenuItem',restaurant_id=restaurant.id)}}" role="button">Add New Menu Item</a></p>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              {%for j in items%}
+              <div class="col-md-6">
+                <p>{{j.name}}</p>
+              </div>
+              <div class="col-md-6">
+                <p>{{j.price}}</p>
+              </div>
+              <div class="col-md-12">
+                <p>Description:{{j.description}}</p>
+              </div>
+              <div class="col-md-6">
+              </div>
+              <div id="editBotton" class="col-md-6">
+                <a href="{{url_for('editMenuItem',restaurant_id = restaurant.id, menu_id=j.id)}}" class="btn btn-info" role="button">Edit </a>
+                <a href="{{url_for('deleteMenuItem',restaurant_id = restaurant.id, menu_id=j.id)}}" class="btn btn-info" role="button">Delete </a>
+
+              </div>
+              <br><br><br>
+              {%  endfor %}
+            </div>
+          </div>
+
+
+        </div>
+    //-->
+      </div>
+
+    </div>
+
+  </body>
+</html>
