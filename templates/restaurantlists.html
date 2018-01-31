@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>All Restaurant</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+
+  </head>
+
+  <body>
+  <div class="container">
+      <h1>All Restaurants</h1>
+      <div class="list-group">
+          {%for i in restaurants%}
+          <a class="list-group-item" href='{{url_for('restaurantMenu',restaurant_id = i.id)}}' class="text-center">{{i.name}}</a>
+          {%  endfor %}
+          
+      </div>
+
+  </div>
+
+  </body>
+</html>

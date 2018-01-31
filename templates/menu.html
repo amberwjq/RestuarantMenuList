@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="container" class="wrap-menu">
+
+          <div class="row-menu-wrap">
+            <div class="row row-menu-header">
+                <div class="category-item">{{restaurant.name}}</div>
+              
+                <a class="btn btn-primary add-button" href='{{url_for('newMenuItem',restaurant_id=restaurant.id)}}'>Add New Menu Item</a>
+            </div>
+              
+              <div class="row" >
+                {%for i in items%}
+                <div class="row-menu">
+                    <p  class="item-menu">{{i.name}}</p>
+                    <p  class="item-price">{{i.price}}</p>
+                </div>
+
+                <span class="gold-line"></span>
+
+                <p class="item-descr">{{i.description}}</p>
+                <!-- <p>Restaurant ID {{i.id}}</p> -->
+                <div class="item-edit">
+                <a class="btn btn-success btn-xs" href='{{url_for('editMenuItem',restaurant_id = restaurant.id, menu_id=i.id)}}'>Edit</a>
+                <a class="btn btn-danger btn-xs" href='{{url_for('deleteMenuItem',restaurant_id = restaurant.id, menu_id=i.id)}}'>Delete</a>
+              </div>
+                {%  endfor %}
+              </div>
+          
+          </div>   
+     
+    </div>
+    
+  </body>
+</html>
