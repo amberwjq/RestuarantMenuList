@@ -3,29 +3,38 @@
   <head>
     <meta charset="utf-8">
     <title>Add New Menu Item</title>
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
-  </head>
-  <body>
-      <h1>Add New Menu Item Here</h1>
-      <form action="{{url_for('newMenuItem', restaurant_id=restaurant_id )}}" method = 'POST'>
 
-        <label>
-        Name
-        <input type="text" name="name">
-        </label>
-        <br>
-        <label>
-        Price
-        <input type="text" name="price">
-        </label>
-        <br>
-        <label>
-        Description
-        <input type="text" name="description">
-        </label>
-        <br>
-        <input type="submit" name="submit" value="Add">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style1.css') }}">
+  </head>
+
+  <body>
+    <div class="container">
+
+      <form class="form-signin" action="{{url_for('newMenuItem', restaurant_id=restaurant_id )}}" method = 'POST'>
+        <h2 class="form-signin-heading">Add new menu item</h2>
+
+                <label>
+                Name
+                <input type="text" name="name" class="form-control">
+                </label>
+                <br>
+                <label>
+                Price
+                <input type="text" name="price" class="form-control">
+                </label>
+                <br>
+                <label>
+                Description
+                <input type="text" name="description" class="form-control">
+                </label>
+               <button class="btn  btn-primary " type="submit">Add</button>
+
       </form>
+
+    </div> <!-- /container -->
+
   </body>
+
 </html>

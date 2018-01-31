@@ -2,15 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
     <title>Delete Menu Item</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style1.css') }}">
   </head>
   <body>
-  <h1>Do you want to delete {{item.name}} ?</h1>
-  <form action="{{url_for('deleteMenuItem',restaurant_id=restaurant_id,menu_id=menu_id)}}" method="POST">
-  <input type='submit', value = 'Delete'>
-  <a href="{{url_for('restaurantMenu',restaurant_id=restaurant_id)}}">Cancel</a>
-  </form>
+    <div class="container">
+
+      <form class="form-signin" action="{{url_for('deleteMenuItem',restaurant_id=restaurant_id,menu_id=menu_id)}}" method="POST">
+      <h2 class="form-signin-heading">Do you want to delete {{item.name}} ?</h2>
+      <button class="btn  btn-primary " type="submit">Delete</button>
+      <a href="{{url_for('restaurantMenu',restaurant_id=restaurant_id)}}" class="btn btn-info" role="button">Cancel</a>
+      </form>
+    </div>
+
   </body>
 </html>

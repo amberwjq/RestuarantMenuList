@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>All restaurants</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.css') }}">
+
+  </head>
+  <header>
+    <div class="container">
+        <h1>All Restaurant</h1>
+    </div>
+  </header>
+  <body>
+
+    <div class="container">
+      {%for i in restaurants%}
+      <a href='{{url_for('restaurantMenu',restaurant_id = i.id)}}'>{{i.name}}</a>
+      <br>
+      {%  endfor %}
+    </div>
+
+  </body>
+</html>
